@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Reset CSS -->
+    <link href="assets/styles/reset.css" media="screen" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Style CSS -->
+    <link href="assets/styles/style.css" media="screen" rel="stylesheet" type="text/css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <!-- JavaScript -->
+    <script src="assets/javascript/game.js"></script>
+    <title>Multiplayer Rock, Paper, Scissors</title>
+</head>
+<body class='c-container / t--dark'><br>
+    <div class='container'>
+        <!-- Title Panel -->
+        <div class='panel t-menu t-border'><br>
+            <h1>Best of 5 Multiplayer Rock, Paper, Scissors</h1><br>
+        </div>
+        <!-- Game Stats and Results Container -->
+        <div class='row t-menu gamearea t-border'>
+            <!-- Player One Dashboard -->
+            <div class='col-md-2 playerOne t-border'><br><br>
+                <h4><span class="badge badge-primary t-border">Player One</span></h4>
+                <h5><span class="badge badge-success t-border" id='p1wins'></span></h5>
+                <h5><span class="badge badge-danger t-border" id='p1losses'></span></h5><br>
+            </div>
+            <!-- Results Display Area -->
+            <div class='col-md-4 showPlayerOne'><br>
+                <span id='p1chose'><h6>Player One Chose</h6><img src='assets/images/rock.png' class='image'></span><br><br>
+            </div>
+            <div class='col-md-4 showPlayerTwo'><br>
+                <span id='p2chose'><h6>Player Two Chose</h6><img src='assets/images/scissors.png' class='image'></span><br><br>
+            </div>
+            <!-- Player Two Dashboard -->
+            <div class='col-md-2 playerTwo t-border'><br><br>
+                    <h4><span class="badge badge-warning t-border">Player Two</span></h4>
+                    <h5><span class="badge badge-success t-border" id='p2wins'></span></h5>
+                    <h5><span class="badge badge-danger t-border" id='p2losses'></span></h5><br>
+            </div>
+        </div>
+        <!-- Buttons To Select RPS -->
+        <div class='col-md-12 t-menu t-border'><br>
+            <button class="btn btn-secondary z t-border" id="rock">PICK ROCK</button>
+            <button class="btn btn-secondary z t-border" id="paper">PICK PAPER</button>
+            <button class="btn btn-secondary z t-border" id="scissors">PICK SCISSORS</button><br><br>
+        </div>
+        <!-- Tracker For Ties And Theme Option Button -->
+        <div class='col-md-12 t-menu t-border'><br>
+            <h2><span class="badge badge-info t-border" id="ties"></span></h2>
+            <button class="btn btn-secondary js-change-theme z t-border"></button><br><br>
+        </div>
+        <!-- Chat Area Container -->
+        <div class='col-md-12 t-menu t-border'><br><h3>Trash Talking Chat Area</h3><br>
+        </div>
+
+    </div>
+</body>
+</html>
