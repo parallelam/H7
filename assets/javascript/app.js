@@ -13,7 +13,7 @@
     firebase.initializeApp(config);
     var database = firebase.database();
 
-    // Global variables for click events:
+    // Global variables for manipulation events:
     var name;
     var destination;
     var trainOne;
@@ -24,7 +24,7 @@
         // Storing and retreiving new data:
         name = $("#train-name").val().trim();
         destination = $("#destination").val().trim();
-        trainOne = $("#first-train").val().trim();
+        initialTrain = $("#first-train").val().trim();
         frequency = $("#frequency").val().trim();
 
         // Database manipulation:
@@ -38,37 +38,42 @@
         $("form")[0].reset();
     });
 
-    database.ref().on("child_added", function(childSnapshot) {
-        var minAway;
+    database.ref().on("child_added", function(childSnapshot) {   
+        var name = childSnapshot.val().name;
+        var destination = childSnapshot.val().destination;
+        var frequence = childSnapshot.val().frequency;
+        var trainArrival = childSnapshot.val().trainOne;
+        var currentDayTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+        console.log(currentDayTime);
         // Establish default time so first train comes in correct order:
-        var firstTrainNew = moment(childSnapshot.val().trainOne, "hh:mm").subtract(1, "years");
+        var firstTrainNew = moment(trainArrival, "hh:mm").subtract(1, "days");
         // Differential between current and trainOne:
         var diffTime = moment().diff(moment(firstTrainNew), "minutes");
-        var remainder = diffTime % childSnapshot.val().frequency;
-        // Time differential before next train:
-        var minAway = childSnapshot.val().frequency - remainder;
+        var remainder = diffTime % frequence;
+        // Time Until Next Arrival, ie tuna; differential before next train:
+        var tuna = frequence - remainder;
+        // moment().endOf('day').fromNow(upcomingTrain); moment().add(1, 'days').calendar()
         // Succeeding train:
-        var nextTrain = moment().add(minAway, "minutes");
-        nextTrain = moment(nextTrain).format("hh:mm");
+        var nextArrival = moment().add(tuna, "minutes").format('MMMM Do YYYY, [at] h:mm a');
+        var tuna1 = moment(nextArrival).diff(moment(tuna), 'hh:mm');
+        // Function to convert to an hourhour:minuteminute format: 
+        var frequencyDisplay = function convertMinsToHrsMins(tuna) {
+            var h = Math.floor(frequence / 60);
+            var m = frequence % 60;
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            return h + ':' + m;
+          };
         // Manipulate DOM to reflect changes:
-        $("#add-row").append("<tr><td>" + childSnapshot.val().name +
-                "</td><td>" + childSnapshot.val().destination +
-                "</td><td>" + childSnapshot.val().frequency +
-                "</td><td>" + nextTrain + 
-                "</td><td>" + minAway + "</td></tr>");
+        $("#add-row").append("<tr class='t-menu__item t-border'><td>" + name +
+                "</td><td>" + destination +
+                "</td><td class='centered'>" + frequence +
+                "</td><td class='centered'>" + nextArrival + 
+                "</td><td class='centered'>" + tuna + "</td></tr>");
             // Error logging:
         }, function(errorObject) {
             console.log("Errors handled: " + errorObject.code);
     });
-
-    database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot) {
-        // Manipulate DOM to reflect changes:
-        $("#name-display").html(snapshot.val().name);
-        $("#email-display").html(snapshot.val().email);
-        $("#age-display").html(snapshot.val().age);
-        $("#comment-display").html(snapshot.val().comment);
-    });
-
     // Click function that changes theme between dark display, night display and certain button types:
     $(document).on('click', '.js-change-theme', function changeTheme (event){
         event.preventDefault();

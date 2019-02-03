@@ -1,13 +1,6 @@
-.panel{
-	width: 100%;
-}
+
 .jumbotron{
-	padding-top: 1%;
-    padding-bottom: 2%;
     text-align: center;
-}
-.panel-heading{
-	padding-top: 0.25%;
 }
  /* light theme */
 .t--light {
@@ -67,10 +60,12 @@
 .c-menu {
     width: calc(100% - 25px);
     height: 40px;
-    padding-left: 25px;
     transition-duration: 1s;
     transition-property: all;
 }
 .buttons {
     justify-content:center;
+}
+.centered {
+    text-align:center;
 }
