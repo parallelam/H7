@@ -41,7 +41,7 @@
     database.ref().on("child_added", function(childSnapshot) {
         var minAway;
         // Establish default time so first train comes in correct order:
-        var firstTrainNew = moment(childSnapshot.val().firstTrain, "hh:mm").subtract(1, "years");
+        var firstTrainNew = moment(childSnapshot.val().trainOne, "hh:mm").subtract(1, "years");
         // Differential between current and trainOne:
         var diffTime = moment().diff(moment(firstTrainNew), "minutes");
         var remainder = diffTime % childSnapshot.val().frequency;
@@ -76,15 +76,15 @@
         var btns = $('.z');
         if (body.hasClass('t--dark')) {
             body.removeClass('t--dark');
-            btns.removeClass('btn-light')
+            btns.removeClass('btn-primary')
             body.addClass('t--light');
-            btns.addClass('btn-dark');
+            btns.addClass('btn-success');
             $('.js-change-theme').text('Switch to a Darker Display')
         } else {
             body.removeClass('t--light');
             body.addClass('t--dark');
-            btns.addClass('btn-light');
-            btns.removeClass('btn-dark');
+            btns.addClass('btn-primary');
+            btns.removeClass('btn-success');
             $('.js-change-theme').text('Switch to a Brighter Display')
         }});
     
