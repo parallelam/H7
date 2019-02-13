@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Train Schedule</title>
+	<title>Transportation Scheduler</title>
 	<!-- Reset CSS -->
 	<link rel="stylesheet" type="text/css" href="assets/styles/reset.css">
 	<!-- Bootstrap CSS -->
@@ -24,16 +24,16 @@
 <body class="c-container / t--dark">
 	<div class="container t-menu t-border"><br>
 		<div class="jumbotron t-menu__item t-border">
-			<h1>Train Scheduler</h1>
+			<h1>Transportation Scheduler</h1>
 		</div>
-		<!-- Current Train Schedule Table -->
+		<!-- Current Transport Schedule Table -->
 		<div class="panel t-menu t-border">
-			<div class="panel-heading t-menu__item t-border"><h3>Current Train Schedules:</h3></div>
+			<div class="panel-heading t-menu__item t-border"><h3>Current Transportation Schedules:</h3></div>
 			<div class="panel-body t-menu__item">
 				<table class="table t-menu__item">
 					<thead class='t-menu__item'>
 						<tr>
-							<th>Train Name</th>
+							<th>Transport Name</th>
 							<th>Destination</th>
 							<th class='centered'>Frequency (HH:mm)</th>
 							<th class='centered'>Next Arrival</th>
@@ -46,15 +46,15 @@
 				</table>
 			</div>
 		</div>
-		<!-- Form New Train Input -->
+		<!-- Form New Transport Input -->
 		<div class="panel t-menu t-border">
 			<div class="panel-heading t-menu__item t-border">
-				<h3>Add Train:</h3>
+				<h3>Add Transport:</h3>
 			</div>
 			<div class="panel-body t-menu__item t-border">
 				<form>
 					<div class="form-group">
-						<label for="text">Train Name</label>
+						<label for="text">Transport Name</label>
 						<input type="text" class="form-control" id="train-name">
 					</div>
 					<div class="form-group">
@@ -62,7 +62,7 @@
 						<input type="text" class="form-control" id="destination">
 					</div>
 					<div class="form-group">
-						<label for="text">First Train Time (HH:mm - Military Time)</label>
+						<label for="text">First Transport Time (HH:mm - Military Time)</label>
 						<input type="text" class="form-control" id="first-train">
 					</div>
 					<div class="form-group">
