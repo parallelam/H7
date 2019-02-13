@@ -1,5 +1,7 @@
 # H7
-H7-Train Schedule
+H7-Transportation Scheduler
+
+A utility meant to track pending arrivals, departures and frequency of public transporation (train, bus, etc) based on individual inputs.
 
 Technologies Incorporated:
 
@@ -17,16 +19,14 @@ Heroku & CORS
 
 jQuery 3.3.1
 
+Moment.js
+
 AJAX
-
-Joint Photographic Experts Group - JPG/JPEG
-
-Portable Network Graphics - PNG
 
 Firebase 5.8.1
 
 GitBash & GitHub
 
-Created with Visual Studio Code
+Created in Visual Studio Code
 
     Extensions: Beautify, ESLint, Live Server, TODO Highlight, Open In Browser, View In Browser
