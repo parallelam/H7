@@ -24,7 +24,7 @@
         // Storing and retreiving new data:
         name = $("#train-name").val().trim();
         destination = $("#destination").val().trim();
-        initialTrain = $("#first-train").val().trim();
+        trainOne = $("#first-train").val().trim();
         frequency = $("#frequency").val().trim();
 
         // Database manipulation:
