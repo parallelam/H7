@@ -1,5 +1,4 @@
-# H7
-H7-Transportation Scheduler
+# Transportation Scheduler
 
 A utility designed to track pending arrivals, departures and frequency of public transporation (train, bus, etc) relative to them based on individual manual inputs.
 
