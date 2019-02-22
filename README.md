@@ -1,6 +1,6 @@
 # Transportation Scheduler
 
-A utility designed to track pending arrivals, departures and frequency of public transporation (train, bus, etc) relative to them based on individual manual inputs.
+A utility designed for users to track pending arrivals, departures and frequency of public transporation (train, bus, etc) relative to them based on individual manual inputs.
 
 Technologies Incorporated:
 
