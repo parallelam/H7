@@ -29,3 +29,10 @@ GitBash & GitHub
 Created in Visual Studio Code
 
     Extensions: Beautify, ESLint, Live Server, TODO Highlight, Open In Browser, View In Browser
+
+
+[Firebase Web Documentation](https://firebase.google.com/docs/web/setup)
+
+[MomentJS Documentation](http://momentjs.com/)
+
+[W3 Article on Local Storage](https://www.w3schools.com/html/html5_webstorage.asp)
